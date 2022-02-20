@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const mcq_pcl = require("./routes/mcq_pcl")
+const mcq = require("./routes/mcq")
 const connectDB = require('./db/mongoose_connect')
 const notFound = require('./middleware/not-found');
 
@@ -36,24 +36,14 @@ app.use(function (req, res, next){
    next(); 
 })
 
-//? ROUTES
-app.get('/hello', async (req, res) => {
-    
-    res.send("Welcome to home");
-});
 
+// app.post(("/create", async (req, res) => {
+//     const data = req.body.data;
+//     res.send({"msg": "Question Added"})
+//     await Question.add(data);
+// }));
 
-app.post(("/create", async (req, res) => {
-    const data = req.body.data;
-    res.send({"msg": "Question Added"})
-    await Question.add(data);
-}));
 //? From Task Route File
-// app.use('/api/v1/tasks', tasks)
-// app.use('/api/v1/questions', Question)
-app.use('/api/v1/blogs', blogs)
-app.use('/api/v1/products', products)
-app.use('/api/v1/drugs', drugs)
-app.use('/api/v1/mcq_pcl', mcq_pcl)
+app.use('/api/v1/mcq', mcq)
 app.use(notFound);
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const McqPCLschema = new mongoose.Schema({
+const MCQSchema = new mongoose.Schema({
     category: {
         type: String,
         trim: true,
@@ -26,4 +26,4 @@ const McqPCLschema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('McqPCL', McqPCLschema);
+module.exports = mongoose.model('MCQSchema', MCQSchema);
