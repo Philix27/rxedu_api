@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const mcq = require("./routes/mcq")
+const article = require("./routes/article")
 const connectDB = require('./db/mongoose_connect')
 const notFound = require('./middleware/not-found');
 
@@ -43,7 +44,7 @@ app.use(function (req, res, next){
 //     await Question.add(data);
 // }));
 
-//? From Task Route File
 app.use('/api/v1/mcq', mcq)
+app.use('/api/v1/articles', article)
 app.use(notFound);
 
