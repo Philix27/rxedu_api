@@ -1,17 +1,16 @@
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const mcq = require("./routes/mcq")
-const article = require("./routes/article")
 const connectDB = require('./db/mongoose_connect')
 const notFound = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
+//? Routes
+const mcq = require("./routes/mcq")
+const article = require("./routes/article")
 
-const Question = require('./db/firebase_config');
-
-require('dotenv').config()
 
 const port = process.env.PORT || 3007;
-
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI);
@@ -24,8 +23,6 @@ const start = async () => {
 
 start();
 
-
-
 //? Middleware
 app.use(express.json());
 app.use(express.static('./public'));
@@ -37,14 +34,8 @@ app.use(function (req, res, next){
    next(); 
 })
 
-
-// app.post(("/create", async (req, res) => {
-//     const data = req.body.data;
-//     res.send({"msg": "Question Added"})
-//     await Question.add(data);
-// }));
-
 app.use('/api/v1/mcq', mcq)
 app.use('/api/v1/articles', article)
 app.use(notFound);
+app.use(errorHandlerMiddleware);
 

@@ -1,22 +1,22 @@
 const Articles = require('../models/article');
 const asyncWrapper = require('../middleware/asyncWrapper');
-
+const {createCustomError} = require('../errors/custom-error')
 const getAll = asyncWrapper(async (req, res, next) => {
         const articles = await Articles.find();
         res.status(201).json({ articles });
 });
 
-const create = asyncWrapper(async (req, res) => {
+const create = asyncWrapper(async (req, res,) => {
         const data = await Articles.create(req.body);
         res.status(201).json(req.body);
 });
 
-const getSingle = asyncWrapper(async (req, res) => {
+const getSingle = asyncWrapper(async (req, res, next) => {
         const { id: docID } = req.params;
         const doc = await Articles.findOne({ _id: docID });
 
         if (!doc) {
-            return res.status(404).json(`No doc with id: ${id}`);
+            return next(createCustomError(`No article found with the id: ${docID}`, 404));
         } else {
             return res.status(201).json({ doc });
 
@@ -24,12 +24,12 @@ const getSingle = asyncWrapper(async (req, res) => {
     
 });
 
-const deleteArticle = asyncWrapper(async (req, res) => {
+const deleteArticle = asyncWrapper(async (req, res, next) => {
         const { id: docID } = req.params;
         const doc = await Articles.findOneAndDelete({ _id: docID });
 
         if (!doc) {
-            return res.status(404).json(`No doc with id: ${id}`);
+            return next(createCustomError(`No article found with the id: ${docID}`, 404));
         } else {
             return res.status(201).json({ doc });
 
@@ -37,7 +37,7 @@ const deleteArticle = asyncWrapper(async (req, res) => {
 
 });
 
-const update = asyncWrapper(async (req, res) =>  {
+const update = asyncWrapper(async (req, res, next) =>  {
         const { id: docID } = req.params
         const doc = await McqPep.findOneAndUpdate(
             { _id: docID },
@@ -46,7 +46,7 @@ const update = asyncWrapper(async (req, res) =>  {
         );
         
         if (!doc) {
-            return res.status(404).json({ msg: `No question with id: ${docID}` });
+            return next(createCustomError(`No article found with the id: ${docID}`, 404));
         }
         res.status(200).json({ docID }); 
     
