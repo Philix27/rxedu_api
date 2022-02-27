@@ -26,4 +26,4 @@ const MCQSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('MCQSchema', MCQSchema);
+module.exports = mongoose.model('mcq', MCQSchema);      

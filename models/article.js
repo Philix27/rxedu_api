@@ -1,24 +1,27 @@
 const mongoose = require('mongoose');
 
 const ArticleSchema = new mongoose.Schema({
-    category: {
-        type: String,
-        trim: true,
-        required: true,
-    },
     subcategory: {
         type: String,
         trim: true,
         default: "",
     },
+    category: {
+        type: String,
+        trim: true,
+        default: "",
+        required: true,
+    },
     title: {
         type: String,
         trim: true,
+        default: "",
         required: true,
     },
     content: {
-        type: [],
-        required: true
+        type: [String ],
+        required: true,
+        default: "",
     },
     imageUrl: {
         type: String,
@@ -37,10 +40,14 @@ const ArticleSchema = new mongoose.Schema({
         type: [String],
          default: [],
     },
+    relatedArticlesID: {
+        type: [String],
+         default: [],
+    },
     flashcards: {
         type: [String],
         default: [],
     },
 });
 
-module.exports = mongoose.model('ArticleSchema', ArticleSchema);
+module.exports = mongoose.model('article', ArticleSchema);

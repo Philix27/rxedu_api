@@ -1,7 +1,7 @@
 {
   "name": "Rxedu.online",
   "version": "1.0.0",
-  "description": "A website for all Nigerian Pharmacists",
+  "description": "An educational platform for pharmacists and other healthcare personnels",
   "main": "index.js",
   "scripts": {
     "watch": "nodemon index.js",
@@ -17,5 +17,11 @@
     "firebase": "^9.5.0",
     "mongoose": "^6.0.8",
     "nodemon": "^2.0.13"
+  },
+  "devDependencies" : {
+    "nodemon": "^2.0.13"
+  },
+  "engines": {
+    "node": "v15.9.0"
   }
 }

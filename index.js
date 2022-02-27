@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('express-async-errors');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -8,6 +9,13 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 //? Routes
 const mcq = require("./routes/mcq")
 const article = require("./routes/article")
+
+//! Remove Nodemon from Dependency when data is avaliable
+//! Remove Nodemon from Dependency when data is avaliable
+//! Leave Nodemon in Dev-Dependency
+//! Leave Nodemon in Dev-Dependency
+//! Run npm i
+//! Delete Comment
 
 
 const port = process.env.PORT || 3007;
@@ -34,8 +42,11 @@ app.use(function (req, res, next){
    next(); 
 })
 
+//? Routes
 app.use('/api/v1/mcq', mcq)
 app.use('/api/v1/articles', article)
+
+//? Error Managers
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
