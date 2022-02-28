@@ -3,8 +3,8 @@ const MCQ = require('../models/mcq');
 const asyncWrapper = require('../middleware/asyncWrapper');
 
 const getAllMCQ = asyncWrapper(async (req, res, next) => {
-        const mcq = await MCQ.find();
-        res.status(201).json({ mcq });
+        const mcq = await MCQ.find().sort('question');
+        res.status(201).json({ mcq, length: mcq.length });
 });
 
 const createMCQ = asyncWrapper(async (req, res) => {

@@ -1,9 +1,10 @@
 const Articles = require('../models/article');
 const asyncWrapper = require('../middleware/asyncWrapper');
-const {createCustomError} = require('../errors/custom-error')
+const { createCustomError } = require('../errors/custom-error')
+
 const getAll = asyncWrapper(async (req, res, next) => {
-        const articles = await Articles.find();
-        res.status(201).json({ articles });
+        const articles = await Articles.find().sort('title');
+        res.status(201).json({ articles, length: articles.length });
 });
 
 const create = asyncWrapper(async (req, res,) => {
