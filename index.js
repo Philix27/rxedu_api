@@ -31,6 +31,9 @@ const start = async () => {
 
 start();
 
+app.get('/', (req, res) => {
+    res.send('Reached Rxedu API');
+})
 //? Middleware
 app.use(express.json());
 app.use(express.static('./public'));
