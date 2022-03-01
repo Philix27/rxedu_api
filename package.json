@@ -4,8 +4,7 @@
   "description": "An educational platform for pharmacists and other healthcare personnels",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"node index.js"
   },
   "author": "Eligbue Felix",
   "license": "ISC",
