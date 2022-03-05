@@ -8,6 +8,7 @@ const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 //? Routes
 const mcq = require("./routes/mcq")
+const mcq_pep = require("./routes/mcq_pep")
 const article = require("./routes/article")
 
 //! Remove Nodemon from Dependency when data is avaliable
@@ -47,6 +48,7 @@ app.use(function (req, res, next){
 
 //? Routes
 app.use('/api/v1/mcq', mcq)
+app.use('/api/v1/mcq_pep', mcq_pep)
 app.use('/api/v1/articles', article)
 
 //? Error Managers
