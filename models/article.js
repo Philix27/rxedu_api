@@ -19,7 +19,7 @@ const ArticleSchema = new mongoose.Schema({
         required: true,
     },
     content: {
-        type: [String ],
+        type: String,
         required: true,
         default: "",
     },
