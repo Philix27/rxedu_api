@@ -4,6 +4,7 @@
   "description": "An educational platform for pharmacists and other healthcare personnels",
   "main": "index.js",
   "scripts": {
+    "watch": "nodemon app.js",
     "start":"node app.js"
   },
   "author": "Eligbue Felix",
