@@ -10,6 +10,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 const mcq = require("./routes/mcq")
 const mcq_pep = require("./routes/mcq_pep")
 const article = require("./routes/article")
+const articleCategory = require("./routes/articles _category")
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Remove Nodemon from Dependency when data is avaliable
@@ -17,7 +18,6 @@ const article = require("./routes/article")
 //! Leave Nodemon in Dev-Dependency
 //! Run npm i
 //! Delete Comment
-
 
 const port = process.env.PORT || 3007;
 const start = async () => {
@@ -50,6 +50,7 @@ app.use(function (req, res, next){
 app.use('/api/v1/mcq', mcq)
 app.use('/api/v1/mcq_pep', mcq_pep)
 app.use('/api/v1/articles', article)
+app.use('/api/v1/articles_category', articleCategory)
 
 //? Error Managers
 app.use(notFound);
