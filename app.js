@@ -49,7 +49,7 @@ app.use(function (req, res, next){
 //? Routes
 app.use('/api/v1/mcq', mcq)
 app.use('/api/v1/mcq_pep', mcq_pep)
-app.use('/api/v1/articles', article)
+app.use('/api/v1/article', article)
 app.use('/api/v1/articles_category', articleCategory)
 
 //? Error Managers
