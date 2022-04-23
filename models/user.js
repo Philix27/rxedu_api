@@ -13,6 +13,17 @@ const UserSchema = new mongoose.Schema({
         default: "",
         required: true,
     },
+    userName: {
+        type: String,
+        trim: true,
+        default: "",
+        required: true,
+    },
+    DateJoined: {
+        type: Date,
+        required: true,
+        default: Date.now,
+    },
     accessToken: {
         type: String,
         trim: true,

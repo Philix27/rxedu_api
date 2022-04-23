@@ -1,23 +1,23 @@
-const Articles = require('../models/article');
+const Users = require('../models/user');
 const asyncWrapper = require('../middleware/asyncWrapper');
 const { createCustomError } = require('../errors/custom-error')
 
 const getAll = asyncWrapper(async (req, res, next) => {
-        const data = await Articles.find().sort('title');
+        const data = await Users.find().sort('email');
         res.status(201).json({ data, length: data.length });
 });
 
 const create = asyncWrapper(async (req, res,) => {
-        const data = await Articles.create(req.body);
+        const data = await Users.create(req.body);
         res.status(201).json(req.body);
 });
 
 const getSingle = asyncWrapper(async (req, res, next) => {
         const { id: docID } = req.params;
-        const doc = await Articles.findOne({ _id: docID });
+        const doc = await Users.findOne({ _id: docID });
 
         if (!doc) {
-            return next(createCustomError(`No article found with the id: ${docID}`, 404));
+            return next(createCustomError(`No user found with the id: ${docID}`, 404));
         } else {
             return res.status(201).json({ doc });
 
@@ -25,12 +25,12 @@ const getSingle = asyncWrapper(async (req, res, next) => {
     
 });
 
-const deleteArticle = asyncWrapper(async (req, res, next) => {
+const deleteUser = asyncWrapper(async (req, res, next) => {
         const { id: docID } = req.params;
-        const doc = await Articles.findOneAndDelete({ _id: docID });
+        const doc = await Users.findOneAndDelete({ _id: docID });
 
         if (!doc) {
-            return next(createCustomError(`No article found with the id: ${docID}`, 404));
+            return next(createCustomError(`No user found with the id: ${docID}`, 404));
         } else {
             return res.status(201).json({ doc });
 
@@ -40,14 +40,14 @@ const deleteArticle = asyncWrapper(async (req, res, next) => {
 
 const update = asyncWrapper(async (req, res, next) =>  {
         const { id: docID } = req.params
-        const doc = await Articles.findOneAndUpdate(
+        const doc = await Users.findOneAndUpdate(
             { _id: docID },
             req.body,
             { new: true, runValidators: true,}
         );
         
         if (!doc) {
-            return next(createCustomError(`No article found with the id: ${docID}`, 404));
+            return next(createCustomError(`No user found with the id: ${docID}`, 404));
         }
         res.status(200).json({ docID }); 
     
@@ -55,7 +55,7 @@ const update = asyncWrapper(async (req, res, next) =>  {
 
 const edit = asyncWrapper(async (req, res) => {
         const { id: docID } = req.params
-        const doc = await Articles.findOneAndUpdate(
+        const doc = await Users.findOneAndUpdate(
             { _id: docID },
             req.body,
             { new: true, runValidators: true, overwrite: false, }
@@ -73,7 +73,7 @@ module.exports = {
     create,
     getSingle,
     update,
-    deleteArticle,
+    deleteUser,
     edit
    
 }
