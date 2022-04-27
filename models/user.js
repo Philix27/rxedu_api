@@ -19,10 +19,10 @@ const UserSchema = new mongoose.Schema({
         default: "",
         required: true,
     },
-    DateJoined: {
-        type: Date,
+    dateJoined: {
+        type: String,
         required: true,
-        default: Date.now,
+        // required: true,
     },
     accessToken: {
         type: String,
