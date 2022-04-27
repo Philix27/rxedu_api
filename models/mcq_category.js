@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
 
-const ArticlesCategorySchema = new mongoose.Schema({
+const McqCategorySchema = new mongoose.Schema({
     title: {
         type: String,
         trim: true,
         default: "",
         required: true,
     },
-department: {
+    department: {
         type: String,
         trim: true,
         default: "",
         required: true,
     },
+   
     imageUrl: {
         type: String,
         trim: true,
@@ -22,4 +23,4 @@ department: {
    
 });
 
-module.exports = mongoose.model('articles_category', ArticlesCategorySchema);
+module.exports = mongoose.model('mcq_category', McqCategorySchema);

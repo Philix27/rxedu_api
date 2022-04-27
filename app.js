@@ -10,7 +10,8 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 const mcq = require("./routes/mcq")
 const mcq_pep = require("./routes/mcq_pep")
 const article = require("./routes/article")
-const articleCategory = require("./routes/articles _category")
+const articleCategory = require("./routes/articles_category")
+const mcqCategory = require("./routes/mcq_category")
 const user = require("./routes/user")
 
 //! Remove Nodemon from Dependency when data is avaliable
@@ -52,6 +53,7 @@ app.use('/api/v1/mcq', mcq)
 app.use('/api/v1/mcq_pep', mcq_pep)
 app.use('/api/v1/articles', article)
 app.use('/api/v1/articles_category', articleCategory)
+app.use('/api/v1/mcq_category', mcqCategory)
 app.use('/api/v1/user', user)
 
 //? Error Managers
