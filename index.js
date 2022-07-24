@@ -6,6 +6,7 @@ const app = express();
 const connectDB = require('./db/mongoose_connect')
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
+
 //? Routes
 const mcq = require("./routes/mcq")
 const mcq_pep = require("./routes/mcq_pep")
@@ -15,8 +16,6 @@ const mcqCategory = require("./routes/mcq_category")
 const user = require("./routes/user")
 
 //! Remove Nodemon from Dependency when data is avaliable
-//! Remove Nodemon from Dependency when data is avaliable
-//! Leave Nodemon in Dev-Dependency
 //! Leave Nodemon in Dev-Dependency
 //! Run npm i
 //! Delete Comment

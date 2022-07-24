@@ -32,7 +32,7 @@ const ArticleSchema = new mongoose.Schema({
         trim: true,
         default: "",
     },
-    mcqUrl: {
+    mcqCategory: {
         type: String,
         default: "",
     },
