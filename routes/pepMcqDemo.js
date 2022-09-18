@@ -11,6 +11,7 @@ const {
 } = require("../controllers/pepMcqDemo");
 
 router.route("/").get(getAll).post(create);
+
 router.route("/:id").get(getSingle).patch(update).delete(deletePepMcqDemo);
 
 module.exports = router;

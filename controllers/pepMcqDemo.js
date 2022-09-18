@@ -1,4 +1,4 @@
-const PepMcqDemo = require("../models/pepMcq");
+const PepMcqDemo = require("../models/pepMcqDemo");
 const asyncWrapper = require("../middleware/asyncWrapper");
 const { createCustomError } = require("../errors/custom-error");
 
