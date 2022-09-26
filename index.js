@@ -16,7 +16,10 @@ const mcqCategory = require("./routes/mcq_category");
 const user = require("./routes/user");
 const pepNote = require("./routes/pepNote");
 const pepMcq = require("./routes/pepMcq");
+const news = require("./routes/news");
 const pepMcqDemo = require("./routes/pepMcqDemo");
+const brandDrugs = require("./routes/brand");
+const genericDrugs = require("./routes/generic");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -65,6 +68,9 @@ app.use("/api/v1/user", user);
 app.use("/api/v1/pep_note", pepNote);
 app.use("/api/v1/pep_mcq", pepMcq);
 app.use("/api/v1/pep_mcq_demo", pepMcqDemo);
+app.use("/api/v1/news", news);
+app.use("/api/v1/brand_drugs", brandDrugs);
+app.use("/api/v1/generic_drugs", genericDrugs);
 
 //? Error Managers
 app.use(notFound);
