@@ -9,7 +9,7 @@ const BrandDrugsSchema = new mongoose.Schema({
   note: {
     type: String,
     trim: true,
-    required: true,
+    // required: true,
   },
   dosageForm: {
     type: String,
@@ -24,6 +24,11 @@ const BrandDrugsSchema = new mongoose.Schema({
   generic: {
     type: String,
     trim: true,
+  },
+  img: {
+    type: String,
+    trim: true,
+    required: true,
   },
   genericID: {
     type: String,
