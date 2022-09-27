@@ -21,10 +21,17 @@ const BrandDrugsSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  dose: {
+  generic: {
     type: String,
     trim: true,
-    required: true,
+  },
+  genericID: {
+    type: String,
+    trim: true,
+  },
+  country: {
+    type: [String],
+    trim: true,
   },
 });
 
