@@ -28,7 +28,7 @@ const BrandDrugsSchema = new mongoose.Schema({
   img: {
     type: String,
     trim: true,
-    required: true,
+    // required: true,
   },
   genericID: {
     type: String,
