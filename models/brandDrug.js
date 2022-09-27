@@ -19,7 +19,7 @@ const BrandDrugsSchema = new mongoose.Schema({
   company: {
     type: String,
     trim: true,
-    required: true,
+    // required: true,
   },
   generic: {
     type: String,
