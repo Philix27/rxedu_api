@@ -4,7 +4,7 @@ const MCQSchema = new mongoose.Schema({
   category: {
     type: String,
     trim: true,
-    required: true,
+    // required: true,
   },
   title: {
     type: String,
@@ -21,7 +21,6 @@ const MCQSchema = new mongoose.Schema({
   },
   tags: {
     type: [String],
-
   },
 });
 
