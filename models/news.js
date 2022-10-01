@@ -20,7 +20,7 @@ const MCQSchema = new mongoose.Schema({
     trim: true,
   },
   timePosted: {
-    type: Date.now,
+    type: Date,
     trim: true,
   },
   tags: {
