@@ -14,6 +14,7 @@ const MCQSchema = new mongoose.Schema({
   image: {
     type: String,
     trim: true,
+    required: true,
   },
   content: {
     type: String,
