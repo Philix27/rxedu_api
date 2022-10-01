@@ -68,7 +68,7 @@ app.use("/api/v1/user", user);
 app.use("/api/v1/pep_note", pepNote);
 app.use("/api/v1/pep_mcq", pepMcq);
 app.use("/api/v1/pep_mcq_demo", pepMcqDemo);
-app.use("/api/v1/news", news);
+app.use("/api/v1/blogs", news);
 app.use("/api/v1/brand_drugs", brandDrugs);
 app.use("/api/v1/generic_drugs", genericDrugs);
 

@@ -19,6 +19,10 @@ const MCQSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  timePosted: {
+    type: Date.now,
+    trim: true,
+  },
   tags: {
     type: [String],
   },

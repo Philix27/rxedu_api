@@ -9,7 +9,7 @@ const getAllNews = asyncWrapper(async (req, res, next) => {
     queryObject.category = category;
   }
   console.log(queryObject.category);
-  const data = await News.find(queryObject).sort("question");
+  const data = await News.find(queryObject).sort("date");
   res.status(201).json({ data, length: data.length });
 });
 
