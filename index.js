@@ -20,6 +20,7 @@ const news = require("./routes/news");
 const pepMcqDemo = require("./routes/pepMcqDemo");
 const brandDrugs = require("./routes/brand");
 const genericDrugs = require("./routes/generic");
+const agent = require("./routes/agent");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -71,7 +72,10 @@ app.use("/api/v1/pep_mcq_demo", pepMcqDemo);
 app.use("/api/v1/blogs", news);
 app.use("/api/v1/brand_drugs", brandDrugs);
 app.use("/api/v1/generic_drugs", genericDrugs);
+app.use("/api/v1/agent", agent);
 
 //? Error Managers
 app.use(notFound);
 app.use(errorHandlerMiddleware);
+
+// http://localhost:3000/api/staterep/add
