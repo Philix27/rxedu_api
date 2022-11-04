@@ -21,6 +21,7 @@ const pepMcqDemo = require("./routes/pepMcqDemo");
 const brandDrugs = require("./routes/brand");
 const genericDrugs = require("./routes/generic");
 const agent = require("./routes/agent");
+const member = require("./routes/member");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -73,6 +74,7 @@ app.use("/api/v1/blogs", news);
 app.use("/api/v1/brand_drugs", brandDrugs);
 app.use("/api/v1/generic_drugs", genericDrugs);
 app.use("/api/v1/agent", agent);
+app.use("/api/v1/member", member);
 
 //? Error Managers
 app.use(notFound);
