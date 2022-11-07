@@ -43,6 +43,10 @@ const MembersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dateOfBirth: {
+    type: String,
+    required: true,
+  },
   maritalStatus: {
     type: String,
     required: true,
