@@ -42,6 +42,7 @@ const AgentSchema = new mongoose.Schema({
   },
   pollingUnit: {
     type: String,
+    required: true,
   },
   image: {
     type: String,
