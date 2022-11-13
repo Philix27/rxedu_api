@@ -43,6 +43,11 @@ const MembersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  nin: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   occupation: {
     type: String,
     required: true,
