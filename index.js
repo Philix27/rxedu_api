@@ -22,6 +22,7 @@ const brandDrugs = require("./routes/brand");
 const genericDrugs = require("./routes/generic");
 const agent = require("./routes/agent");
 const member = require("./routes/member");
+const pdfloader = require("./pdf");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -75,6 +76,7 @@ app.use("/api/v1/brand_drugs", brandDrugs);
 app.use("/api/v1/generic_drugs", genericDrugs);
 app.use("/api/v1/agent", agent);
 app.use("/api/v1/member", member);
+app.use("/api/v1/pdfloader", pdfloader);
 
 //? Error Managers
 app.use(notFound);
