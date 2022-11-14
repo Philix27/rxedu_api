@@ -60,6 +60,16 @@ const MembersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  //! Others
+  isApproved: {
+    type: Boolean,
+    default: false,
+    required: true,
+  },
+  registrationDate: {
+    type: Date,
+    required: true,
+  },
   //! Step 3
   image: {
     type: String,

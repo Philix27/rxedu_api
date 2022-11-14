@@ -2,7 +2,7 @@ const PDFDocument = require("pdfkit");
 const blobStream = require("blob-stream");
 const fs = require("fs");
 
-const generatePdf = (body, dataCallback, endCallback) => {
+const generatePdf = () => {
   const doc = new PDFDocument({
     title: "Membership Card",
     Author: "Felix Eligbue",
@@ -14,10 +14,8 @@ const generatePdf = (body, dataCallback, endCallback) => {
     margin: 10,
   });
 
-  // doc.pipe(fs.createWriteStream("outfile.pdf"));
-
-  // const stream = doc.pipe(blobStream());
-
+  doc.pipe(fs.createWriteStream("outfile.pdf"));
+  const stream = doc.pipe(blobStream());
   doc.fontSize(8);
   doc.font("Times-Roman");
 
@@ -31,34 +29,45 @@ const generatePdf = (body, dataCallback, endCallback) => {
   doc.moveDown();
   doc.text(
     `
-NAME: ${body.name}
-STATE: ${body.state}
-LGA: ${body.lga}
-WARD: ${body.ward}
-DOB: ${body.dob}
-NIN: ${body.nin}
-MEM. No.: ${body.membershipCode} 
+First & Last User Name
+STATE: DELTA
+LGA: NDOKWQ WEST
+WARD: UTAGBA-OGBE
+DOB: 27th July, 2022
 `,
     {
       align: "left",
     }
   );
 
-  doc.image(apcLogo, 320, 145, { width: 200, height: 100 });
+  doc.text(
+    `
+First & Last User Name
+STATE: DELTA
+LGA: NDOKWQ WEST
+WARD: UTAGBA-OGBE
+DOB: 27th July, 2022
+`
+  );
+
+  // doc.text("STATE", {
+  //   align: "right",
+  // });
+  // doc.image("logo.png", 320, 145, { width: 200, height: 100 });
+  // doc.moveDown();
+  // doc.image("logo.png");
   doc.moveDown();
   doc.moveDown();
   doc.fontSize(4).text("APC MEMBERSHIP CARD", {
     align: "center",
   });
 
-  // doc.on("data", dataCallback);
-  // doc.on("end", endCallback);
+  // doc
+  //   .image("assets/logo.png", 320, 145, { width: 200, height: 100 })
+  //   .text("Stretch", 320, 130);
+
   doc.end();
 };
-
-// doc
-//   .image("assets/logo.png", 320, 145, { width: 200, height: 100 })
-//   .text("Stretch", 320, 130);
 
 // stream.on("finish", function () {
 //   // get a blob you can do whatever you like with

@@ -22,7 +22,7 @@ const brandDrugs = require("./routes/brand");
 const genericDrugs = require("./routes/generic");
 const agent = require("./routes/agent");
 const member = require("./routes/member");
-const pdfloader = require("./pdf");
+const pdfloader = require("./routes/pdf");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
