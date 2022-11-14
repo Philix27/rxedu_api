@@ -14,7 +14,7 @@ const create = asyncWrapper(async (req, res) => {
 
 const getSingle = asyncWrapper(async (req, res, next) => {
   const { id: docID } = req.params;
-  const doc = await Members.findOne({ _id: docID });
+  const doc = await Members.findOne({ nin: docID });
 
   if (!doc) {
     return next(
