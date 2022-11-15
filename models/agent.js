@@ -63,6 +63,16 @@ const AgentSchema = new mongoose.Schema({
   status: {
     type: String,
   },
+  //! Others
+  isApproved: {
+    type: Boolean,
+    default: false,
+    // required: true,
+  },
+  registrationDate: {
+    type: Date,
+    // required: true,
+  },
 });
 
 module.exports = mongoose.model("agent", AgentSchema);
