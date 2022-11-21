@@ -67,11 +67,15 @@ const AgentSchema = new mongoose.Schema({
   isApproved: {
     type: Boolean,
     default: false,
-    // required: true,
+    required: true,
   },
   registrationDate: {
     type: Date,
-    // required: true,
+    required: true,
+  },
+  transactionRef: {
+    type: String,
+    required: true,
   },
 });
 

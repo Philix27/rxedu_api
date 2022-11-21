@@ -35,9 +35,7 @@ const createPdf = asyncWrapper(async (req, res, next) => {
   });
 
   // doc.pipe(fs.createWriteStream("outfile.pdf"));
-
   // const stream = doc.pipe(blobStream());
-
   doc.fontSize(8);
   doc.font("Times-Roman");
 
