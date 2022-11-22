@@ -62,7 +62,7 @@ const AgentSchema = new mongoose.Schema({
   },
   nin: {
     type: String,
-    // required: true,
+    required: true,
   },
   status: {
     type: String,
