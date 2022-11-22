@@ -24,6 +24,7 @@ const agent = require("./routes/agent");
 const member = require("./routes/member");
 const pdfloader = require("./routes/pdf");
 const agentByState = require("./routes/agentByState");
+const agentByNin = require("./routes/agentByNin");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -79,6 +80,7 @@ app.use("/api/v1/agent", agent);
 app.use("/api/v1/agents_by_state", agentByState);
 app.use("/api/v1/member", member);
 app.use("/api/v1/pdfloader", pdfloader);
+app.use("/api/v1/agent_by_nin", agentByNin);
 
 //? Error Managers
 app.use(notFound);
