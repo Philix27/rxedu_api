@@ -62,7 +62,7 @@ const AgentSchema = new mongoose.Schema({
   },
   nin: {
     type: String,
-    required: true,
+    // required: true,
   },
   status: {
     type: String,
@@ -71,7 +71,7 @@ const AgentSchema = new mongoose.Schema({
   isApproved: {
     type: Boolean,
     default: false,
-    required: true,
+    // required: true,
   },
   registrationDate: {
     type: Date,
@@ -79,7 +79,7 @@ const AgentSchema = new mongoose.Schema({
   },
   transactionRef: {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 
