@@ -75,7 +75,7 @@ const AgentSchema = new mongoose.Schema({
   },
   registrationDate: {
     type: Date,
-    required: true,
+    // required: true,
   },
   transactionRef: {
     type: String,
