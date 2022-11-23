@@ -9,7 +9,7 @@ const getAll = asyncWrapper(async (req, res, next) => {
 
 const create = asyncWrapper(async (req, res) => {
   const data = await Agents.create(req.body);
-  res.status(201).json(req.body);
+  res.status(201).json({ data });
 });
 
 const getSingle = asyncWrapper(async (req, res, next) => {
