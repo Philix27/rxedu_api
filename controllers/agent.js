@@ -4,7 +4,7 @@ const { createCustomError } = require("../errors/custom-error");
 
 const getAll = asyncWrapper(async (req, res, next) => {
   const page = req.query.page || 0;
-  const agentsPerPage = 50;
+  const agentsPerPage = 40;
   const skip = page * agentsPerPage;
   const data = await Agents.find()
     .sort("registrationDate")
