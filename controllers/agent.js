@@ -14,7 +14,7 @@ const getAll = asyncWrapper(async (req, res, next) => {
     .limit(agentsPerPage);
   res
     .status(201)
-    .json({ data, length: data.length, totalCount: dataList.length });
+    .json({ length: data.length, totalCount: dataList.length, data });
 });
 
 const create = asyncWrapper(async (req, res) => {
