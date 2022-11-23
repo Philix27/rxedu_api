@@ -3,7 +3,13 @@ const asyncWrapper = require("../middleware/asyncWrapper");
 const { createCustomError } = require("../errors/custom-error");
 
 const getAll = asyncWrapper(async (req, res, next) => {
-  const data = await Agents.find().sort("name");
+  const page = req.query.page || 0;
+  const agentsPerPage = 50;
+  const skip = page * agentsPerPage;
+  const data = await Agents.find()
+    .sort("registrationDate")
+    .skip(skip)
+    .limit(agentsPerPage);
   res.status(201).json({ data, length: data.length });
 });
 
