@@ -1,33 +1,43 @@
-const Members = require("../models/member");
+const Sponsors = require("../models/sponsor");
 const asyncWrapper = require("../middleware/asyncWrapper");
 const { createCustomError } = require("../errors/custom-error");
 
 const getAll = asyncWrapper(async (req, res, next) => {
-  const data = await Members.find().sort("registrationDate");
-  res.status(201).json({ data, length: data.length });
+  const page = req.query.page || 0;
+  const sponsorsPerPage = 40;
+  const skip = page * sponsorsPerPage;
+  const dataList = await Sponsors.find();
+
+  const data = await Sponsors.find()
+    .sort("registrationDate")
+    .skip(skip)
+    .limit(sponsorsPerPage);
+  res
+    .status(201)
+    .json({ length: data.length, totalCount: dataList.length, data });
 });
 
 const create = asyncWrapper(async (req, res) => {
-  const data = await Members.create(req.body);
-  res.status(201).json(req.body);
+  const data = await Sponsors.create(req.body);
+  res.status(201).json({ data });
 });
 
 const getSingle = asyncWrapper(async (req, res, next) => {
-  const { id: docID } = req.params;
-  const doc = await Members.findOne({ nin: docID });
+  const { id: ref } = req.params;
+  const doc = await Sponsors.findOne({ transactionRef: ref });
 
   if (!doc) {
     return next(
-      createCustomError(`No article found with the id: ${docID}`, 404)
+      createCustomError(`No sponsor with the transaction ref ${ref}`, 404)
     );
   } else {
     return res.status(201).json({ doc });
   }
 });
 
-const deleteMember = asyncWrapper(async (req, res, next) => {
+const deleteSponsor = asyncWrapper(async (req, res, next) => {
   const { id: docID } = req.params;
-  const doc = await Members.findOneAndDelete({ _id: docID });
+  const doc = await Sponsors.findOneAndDelete({ _id: docID });
 
   if (!doc) {
     return next(
@@ -40,7 +50,7 @@ const deleteMember = asyncWrapper(async (req, res, next) => {
 
 const update = asyncWrapper(async (req, res, next) => {
   const { id: docID } = req.params;
-  const doc = await Members.findOneAndUpdate({ _id: docID }, req.body, {
+  const doc = await Sponsors.findOneAndUpdate({ _id: docID }, req.body, {
     new: true,
     runValidators: true,
   });
@@ -50,12 +60,12 @@ const update = asyncWrapper(async (req, res, next) => {
       createCustomError(`No article found with the id: ${docID}`, 404)
     );
   }
-  res.status(200).json({ docID });
+  res.status(200).json({ doc });
 });
 
 const edit = asyncWrapper(async (req, res) => {
   const { id: docID } = req.params;
-  const doc = await Members.findOneAndUpdate({ _id: docID }, req.body, {
+  const doc = await Sponsors.findOneAndUpdate({ _id: docID }, req.body, {
     new: true,
     runValidators: true,
     overwrite: false,
@@ -72,6 +82,6 @@ module.exports = {
   create,
   getSingle,
   update,
-  deleteMember,
+  deleteSponsor,
   edit,
 };

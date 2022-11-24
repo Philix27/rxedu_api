@@ -81,6 +81,10 @@ const AgentSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
+  sponsorID: {
+    type: String,
+    // required: true,
+  },
 });
 
 module.exports = mongoose.model("agent", AgentSchema);

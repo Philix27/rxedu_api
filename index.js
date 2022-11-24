@@ -20,11 +20,15 @@ const news = require("./routes/news");
 const pepMcqDemo = require("./routes/pepMcqDemo");
 const brandDrugs = require("./routes/brand");
 const genericDrugs = require("./routes/generic");
-const agent = require("./routes/agent");
+// * APC
 const member = require("./routes/member");
+const sponsor = require("./routes/sponsor");
 const pdfloader = require("./routes/pdf");
+//! Agent
+const agent = require("./routes/agent");
 const agentByState = require("./routes/agentByState");
 const agentByNin = require("./routes/agentByNin");
+const agentByEmail = require("./routes/agentByEmail");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -76,11 +80,14 @@ app.use("/api/v1/pep_mcq_demo", pepMcqDemo);
 app.use("/api/v1/blogs", news);
 app.use("/api/v1/brand_drugs", brandDrugs);
 app.use("/api/v1/generic_drugs", genericDrugs);
+//! APC
 app.use("/api/v1/agent", agent);
 app.use("/api/v1/agents_by_state", agentByState);
 app.use("/api/v1/member", member);
 app.use("/api/v1/pdfloader", pdfloader);
 app.use("/api/v1/agent_by_nin", agentByNin);
+app.use("/api/v1/agent_by_email", agentByEmail);
+app.use("/api/v1/sponsor", sponsor);
 
 //? Error Managers
 app.use(notFound);

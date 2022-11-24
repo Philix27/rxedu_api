@@ -4,7 +4,7 @@ const { createCustomError } = require("../errors/custom-error");
 const PDFDocument = require("pdfkit");
 const blobStream = require("blob-stream");
 const fs = require("fs");
-const generatePdf = require("../pdf/index");
+const generatePdf = require("../services/pdf");
 // const apcLogo = require("../assets/img/logo.png");
 
 // const imageData2 =
