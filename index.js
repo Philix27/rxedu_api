@@ -24,6 +24,7 @@ const genericDrugs = require("./routes/generic");
 const member = require("./routes/member");
 const sponsor = require("./routes/sponsor");
 const sponsorByRef = require("./routes/sponsorByRef");
+const agentBySponsorCode = require("./routes/agentBySponsorCode");
 const pdfloader = require("./routes/pdf");
 //! Agent
 const agent = require("./routes/agent");
@@ -90,6 +91,7 @@ app.use("/api/v1/pdfloader", pdfloader);
 app.use("/api/v1/agent_by_nin", agentByNin);
 app.use("/api/v1/agent_by_email", agentByEmail);
 app.use("/api/v1/sponsor", sponsor);
+app.use("/api/v1/sponsor_code", agentBySponsorCode);
 app.use("/api/v1/sponsor_by_ref", sponsorByRef);
 // app.use("/api/v1/mailer", mailer);
 
