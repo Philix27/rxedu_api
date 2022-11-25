@@ -23,12 +23,14 @@ const genericDrugs = require("./routes/generic");
 // * APC
 const member = require("./routes/member");
 const sponsor = require("./routes/sponsor");
+const sponsorByRef = require("./routes/sponsorByRef");
 const pdfloader = require("./routes/pdf");
 //! Agent
 const agent = require("./routes/agent");
 const agentByState = require("./routes/agentByState");
 const agentByNin = require("./routes/agentByNin");
 const agentByEmail = require("./routes/agentByEmail");
+// const mailer = require("./routes/mailer");
 
 //! Remove Nodemon from Dependency when data is avaliable
 //! Leave Nodemon in Dev-Dependency
@@ -88,6 +90,8 @@ app.use("/api/v1/pdfloader", pdfloader);
 app.use("/api/v1/agent_by_nin", agentByNin);
 app.use("/api/v1/agent_by_email", agentByEmail);
 app.use("/api/v1/sponsor", sponsor);
+app.use("/api/v1/sponsor_by_ref", sponsorByRef);
+// app.use("/api/v1/mailer", mailer);
 
 //? Error Managers
 app.use(notFound);

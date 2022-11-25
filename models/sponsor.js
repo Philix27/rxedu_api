@@ -2,14 +2,11 @@ const mongoose = require("mongoose");
 
 const SponsorSchema = new mongoose.Schema({
   //! First Set
-  firstName: {
+  name: {
     type: String,
     required: true,
   },
-  lastName: {
-    type: String,
-    required: true,
-  },
+
   email: {
     type: String,
     required: true,
@@ -24,11 +21,6 @@ const SponsorSchema = new mongoose.Schema({
   },
   lga: {
     type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-    // required: true,
   },
   registrationDate: {
     type: Date,
@@ -38,7 +30,7 @@ const SponsorSchema = new mongoose.Schema({
   unit: {
     type: Number,
   },
-  transactionRef: {
+  refcode: {
     type: String,
   },
 });
