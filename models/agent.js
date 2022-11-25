@@ -85,6 +85,16 @@ const AgentSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
+  sponsored: {
+    type: Boolean,
+
+    // required: true,
+  },
+  sponsorCode: {
+    type: String,
+
+    // required: true,
+  },
 });
 
 module.exports = mongoose.model("agent", AgentSchema);
