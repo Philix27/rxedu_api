@@ -85,10 +85,12 @@ const AgentSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
+  isAgent: {
+    type: Boolean,
+    default: false,
+  },
   sponsored: {
     type: Boolean,
-
-    // required: true,
   },
   sponsorCode: {
     type: String,
