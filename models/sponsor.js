@@ -29,9 +29,11 @@ const SponsorSchema = new mongoose.Schema({
   //! Important Params
   unit: {
     type: Number,
+    required: true,
   },
   refcode: {
     type: String,
+    required: true,
   },
 });
 
