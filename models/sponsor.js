@@ -17,7 +17,7 @@ const SponsorSchema = new mongoose.Schema({
   },
   state: {
     type: String,
-    required: true,
+    // required: true,
   },
   lga: {
     type: String,
