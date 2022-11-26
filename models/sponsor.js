@@ -31,6 +31,9 @@ const SponsorSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  transactionRef: {
+    type: String,
+  },
   refcode: {
     type: String,
     required: true,
