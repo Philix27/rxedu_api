@@ -32,6 +32,7 @@ const agentSort = require("./routes/agentSort");
 const agentByState = require("./routes/agentByState");
 const agentByNin = require("./routes/agentByNin");
 const agentByEmail = require("./routes/agentByEmail");
+const agentsAll = require("./routes/agentAll");
 // const mailer = require("./routes/mailer");
 
 //! Remove Nodemon from Dependency when data is avaliable
@@ -95,6 +96,7 @@ app.use("/api/v1/sponsor", sponsor);
 app.use("/api/v1/sponsor_code", agentBySponsorCode);
 app.use("/api/v1/sponsor_by_ref", sponsorByRef);
 app.use("/api/v1/agent_sort", agentSort);
+app.use("/api/v1/agent_all", agentsAll);
 // app.use("/api/v1/mailer", mailer);
 
 //? Error Managers
