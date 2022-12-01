@@ -34,8 +34,11 @@ const AgentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  gender: {
+    type: String,
+  },
   dateOfBirth: {
-    type: Date,
+    type: String,
     // required: true,
   },
   //! Second Set
