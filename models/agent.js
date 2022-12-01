@@ -34,6 +34,10 @@ const AgentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dateOfBirth: {
+    type: Date,
+    // required: true,
+  },
   //! Second Set
   electionType: {
     type: String,
